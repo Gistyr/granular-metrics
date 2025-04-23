@@ -134,10 +134,13 @@ async fn test_1() -> bool {
 }
 
 async fn test_2() -> bool {
+    use Keys::*;
+    use granular_metrics::increment;
+    
     let mut count: u8 = 0;
     
     while count < 100 {
-        granular_metrics::increment(Keys::Two);
+        increment(Two);
 
         tokio::time::sleep(std::time::Duration::from_millis(100)).await;
 
