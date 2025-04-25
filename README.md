@@ -62,7 +62,7 @@ async fn download_handler() -> impl Responder {
 ```
 ## FOUR: Retrieve
 ```rust
-async fn main() {
+fn main() {
     let server_metrics = granular_metrics::fetch::<Keys>();
 }
 ```
@@ -80,7 +80,20 @@ pub struct MetricsSnapshot<K> {
     pub total: (u64, u64),
 }
 ```
-
+```rust
+MetricsSnapshot { per_key: {Login: (8, 500), Download: (0, 10), Ping: (1, 100), Verify: (16, 1000)}, total: (26, 1610) }
+```
+Or the JSON version when using the `HTTP` feature
+```json
+{"per_key":{"Login":[1,95],"Download":[0,3],"Ping":[2,179],"Verify":[0,20]},"total":[4,297]}
+```
+This `translates` to
+```rust
+{ per_key: {Login: (requests per second, requests per minute), Download: (RPS, RPM), Ping: (RPS, RPM), Verify: (RPS, RPM)}, total: (aggregate RPS: total requests last minute ÷ 60, aggregate RPM: total requests last minute) }
+```
+# INFORMATION
+- Both the per second and per minute calculations are computed every second
+    - "Real time" metrics are possible
 
 
 
