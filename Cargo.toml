@@ -3,6 +3,15 @@ name = "granular-metrics"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.85.1"
+authors = ["Gistyr LLC <contact@gistyr.dev>"]
+description = "Zero-middleware metrics counter that emits per-key and aggregate RPS/RPM snapshots every second"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Gistyr/granular-metrics"
+homepage = "https://github.com/Gistyr/granular-metrics"
+documentation = "https://docs.rs/granular-metrics"   
+keywords = ["metrics", "monitoring", "counter", "performance", "http"]
+categories = ["development-tools::profiling", "development-tools::debugging", "asynchronous", "network-programming", "web-programming::http-server"]
 
 [dependencies]
 tokio = { version = "1.44.2", default-features = false, features = ["macros", "rt-multi-thread", "time"] }

@@ -40,7 +40,7 @@ async fn test_one() {
 
     let snapshot = granular_metrics::fetch::<Keys>();
 
-    better_logger::logger::info!("snapshot: {:?}", &snapshot);
+    better_logger::logger::info!("{:?}", &snapshot);
 
     assert_eq!(snapshot.per_key.len(), 4);
 
@@ -94,7 +94,7 @@ async fn test_two() {
 
     let snapshot = granular_metrics::fetch::<Keys>();
 
-    better_logger::logger::info!("snapshot: {:?}", &snapshot);
+    better_logger::logger::info!("{:?}", &snapshot);
 
     assert_eq!(snapshot.per_key.len(), 4);
 
